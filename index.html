@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Análise de Grafos</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-project-diagram"></i> Sistema de Análise de Grafos</h1>
+            <p class="subtitle">Crie, visualize e analise grafos com busca em largura e profundidade</p>
+        </header>
+
+        <div class="app-container">
+            <div class="panel graph-config">
+                <h2><i class="fas fa-cog"></i> Configuração do Grafo</h2>
+                <div class="form-group">
+                    <label for="vertex-count">Número de vértices:</label>
+                    <input type="number" id="vertex-count" min="1" max="20" value="5">
+                </div>
+                <button id="init-graph" class="btn btn-primary">Inicializar Grafo</button>
+                
+                <div id="connections-container" class="hidden">
+                    <h3>Definir Conexões</h3>
+                    <div id="vertex-connections"></div>
+                    <button id="build-graph" class="btn btn-success">Construir Grafo</button>
+                </div>
+            </div>
+
+            <div class="panel graph-display hidden">
+                <h2><i class="fas fa-network-wired"></i> Visualização do Grafo</h2>
+                <div class="graph-actions">
+                    <button id="show-matrix" class="btn btn-info">Mostrar Matriz</button>
+                    <button id="reset-graph" class="btn btn-warning">Reiniciar Grafo</button>
+                </div>
+                <div id="matrix-container" class="hidden"></div>
+            </div>
+
+            <div class="panel graph-search hidden">
+                <h2><i class="fas fa-search"></i> Busca no Grafo</h2>
+                <div class="search-controls">
+                    <div class="form-group">
+                        <label for="start-vertex">Vértice de origem:</label>
+                        <select id="start-vertex"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-vertex">Vértice de destino:</label>
+                        <select id="end-vertex"></select>
+                    </div>
+                    <button id="run-search" class="btn btn-primary">Executar Busca</button>
+                </div>
+                <div id="search-results" class="hidden">
+                    <h3>Resultados</h3>
+                    <div class="result-section">
+                        <h4><i class="fas fa-expand"></i> Busca em Largura (BFS)</h4>
+                        <div id="bfs-result" class="result-content"></div>
+                    </div>
+                    <div class="result-section">
+                        <h4><i class="fas fa-level-down-alt"></i> Busca em Profundidade (DFS)</h4>
+                        <div id="dfs-result" class="result-content"></div>
+                    </div>
+                    <button id="new-search" class="btn btn-secondary">Nova Busca</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="console" class="console hidden">
+            <div class="console-header">
+                <h3><i class="fas fa-terminal"></i> Console</h3>
+                <button id="clear-console" class="btn btn-sm btn-warning">Limpar</button>
+            </div>
+            <div id="console-content" class="console-content"></div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>Feito e desenvolvido por <strong>Andrei Rodrigues</strong></p>
+                <p class="footer-links">
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
